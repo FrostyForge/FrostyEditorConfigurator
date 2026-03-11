@@ -73,6 +73,13 @@
         "url": "https://github.com/AdamRaichu/FrostyAbilityIdLookup/releases/latest/download/AbilityIdLookupPlugin.dll",
         "filename": "Plugins/AbilityIdLookupPlugin.dll",
         "dependencies": []
+      },
+      {
+        "name": "Auto LOD Generator Plugin",
+        "description": "Automatically generates LODs for meshes within the Frosty Editor.",
+        "url": "https://github.com/Claymaver/Frosty-Auto-LOD-Generator/releases/download/1.0.2.5/AutoLodPlugin.dll",
+        "filename": "Plugins/AutoLodPlugin.dll",
+        "dependencies": []
       }
     ],
     "overrides": [],
