@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Frosty Editor Configurator | Editor v1.0.6.3</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+
+  <link rel='stylesheet' href='../main.css'>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
     integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
     integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+
   <script src='main.js' defer type="module"></script>
 </head>
 
 <body>
-  <h1>Frosty Editor Configurator</h1>
-  <h2>Editor v1.0.6.3</h2>
-  <br>
-  <p>Use this tool to customize your Frosty Editor installation. Get all your plugins in one place!</p>
-  <p>The default configuration has all recommended plugins enabled. Click <a id="scroll"
-      href="javascript:void(0);">here</a> to scroll down to the install button.</p>
-  <br><br>
-  <noscript>This tool requires JavaScript to function.</noscript>
-  <div id="configuration"></div>
-  <br><br>
-  <button id="execute">Begin Download</button>
-  <p>Status: <span id="status">Waiting</span></p>
-</body>
+  <div class="app">
+    <!-- HEADER / HERO -->
+    <header class="hero">
+      <h1>Frosty Editor Configurator</h1>
+      <h2>Editor v1.0.6.3</h2>
+      <p>
+        Customize your <strong>Frosty Editor</strong> installation and download all
+        your plugins in one place.
+      </p>
+      <p class="hint">
+        The default configuration includes all recommended plugins.
+        Click <a id="scroll" href="javascript:void(0);">here</a> to jump to the installer.
+      </p>
+    </header>
 
+    <noscript>This tool requires JavaScript to function.</noscript>
+
+    <!-- PLUGIN CONFIGURATION -->
+    <main>
+      <div id="configuration"></div>
+    </main>
+
+    <!-- INSTALL PANEL -->
+    <footer class="install-panel">
+      <button id="execute">Begin Download</button>
+      <div class="status">
+        Status: <span id="status">Waiting</span>
+      </div>
+    </footer>
+  </div>
+</body>
 </html>
