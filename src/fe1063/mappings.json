@@ -77,7 +77,7 @@
       {
         "name": "Auto LOD Generator Plugin",
         "description": "Automatically generates LODs for meshes within the Frosty Editor.",
-        "url": "https://github.com/Claymaver/Frosty-Auto-LOD-Generator/releases/latest/download/AutoLodPlugin.dll",
+        "url": "https://github.com/FrostyForge/Frosty-Auto-LOD-Generator/releases/latest/download/AutoLodPlugin.dll",
         "filename": "Plugins/AutoLodPlugin.dll",
         "dependencies": []
       }
