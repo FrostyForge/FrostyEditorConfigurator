@@ -80,6 +80,13 @@
         "url": "https://github.com/FrostyForge/Frosty-Auto-LOD-Generator/releases/latest/download/AutoLodPlugin.dll",
         "filename": "Plugins/AutoLodPlugin.dll",
         "dependencies": []
+      },
+      {
+      "name": "Cloth Generator Plugin",
+      "description": "A lightweight plugin that generates cloth data directly inside the editor.",
+      "url": "https://github.com/FrostyForge/Frosty-ClothGeneratorPlugin/releases/latest/download/ClothDataPlugin.dll ",
+      "filename": "Plugins/ClothDataPlugin.dll",
+      "dependencies": []
       }
     ],
     "overrides": [],
