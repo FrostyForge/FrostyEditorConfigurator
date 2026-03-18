@@ -114,7 +114,7 @@ executeButton.addEventListener("click", async () => {
     const response = await fetch(url);
     const contentLength = response.headers.get("Content-Length");
     const total = contentLength ? parseInt(contentLength, 10) : 0;
-    
+
     if (!total) {
       console.warn("Content-Length not found, progress will not be shown.");
       return response.blob();
@@ -151,27 +151,58 @@ executeButton.addEventListener("click", async () => {
    */
   const blobPromises = [];
   const filenames = [];
-  const requiredDependencies = [];
+  /* 
+  const exampleDependency = {
+    category: "plugins",
+    index: 1
+  };
+  const exampleDependency2 = {
+    category: "hidden",
+    index: 0
+  };
+  */
+  let requiredDependencies = [];
 
   // Plugins
-  mappings.editor.plugins.forEach(async (pluginMapping) => {
+  mappings.editor.plugins.forEach((pluginMapping) => {
     if (enabledPlugins.includes(pluginMapping.name)) {
       blobPromises.push(new Promise(async (res, _rej) => {
         res((await fetch(proxyUrl + pluginMapping.url)).blob());
       }));
       filenames.push(pluginMapping.filename);
+      requiredDependencies.push(...pluginMapping.dependencies);
     }
   });
 
   // Other files
-  mappings.editor.other.forEach(async (otherFileMapping) => {
+  mappings.editor.other.forEach((otherFileMapping) => {
     if (enabledOtherFiles.includes(otherFileMapping.name)) {
       blobPromises.push(new Promise(async (res, _rej) => {
         res((await fetch(proxyUrl + otherFileMapping.url)).blob());
       }));
       filenames.push(otherFileMapping.filename);
+      requiredDependencies.push(...otherFileMapping.dependencies);
     }
   });
+
+  // Dependencies
+  let hasFulfilledAllDependencies = false;
+  while (!hasFulfilledAllDependencies) {
+    const newDependencies = [];
+    requiredDependencies.forEach(dependency => {
+      const mapping = mappings.editor[dependency.category][dependency.index];
+      blobPromises.push(new Promise(async (res, _rej) => {
+        res((await fetch(proxyUrl + mapping.url)).blob());
+      }));
+      newDependencies.push(...mapping.dependencies);
+      filenames.push(mapping.filename);
+    });
+    requiredDependencies = newDependencies;
+    if (requiredDependencies.length === 0) {
+      hasFulfilledAllDependencies = true;
+    }
+    console.log("Dependency loop");
+  }
 
   const resolvedBlobs = await Promise.all(blobPromises);
   for (var i = 0; i < resolvedBlobs.length; i++) {
@@ -181,7 +212,7 @@ executeButton.addEventListener("click", async () => {
   console.log({ after: zip.files });
   setStatus("[Step 3/3] Generating file for download.");
 
-  zip.generateAsync({ type: "blob" }, (meta)=> {
+  zip.generateAsync({ type: "blob" }, (meta) => {
     setStatus(`Generating file for download... ${meta.percent.toFixed(2)}%`);
   })
     .then(function (content) {

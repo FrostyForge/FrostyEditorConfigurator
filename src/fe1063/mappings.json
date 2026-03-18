@@ -72,7 +72,12 @@
         "description": "Plugin to find the path of an ability file given it's Identifier.",
         "url": "https://github.com/AdamRaichu/FrostyAbilityIdLookup/releases/latest/download/AbilityIdLookupPlugin.dll",
         "filename": "Plugins/AbilityIdLookupPlugin.dll",
-        "dependencies": []
+        "dependencies": [
+          {
+            "category": "hidden",
+            "index": 0
+          }
+        ]
       },
       {
         "name": "Auto LOD Generator Plugin",
@@ -82,11 +87,25 @@
         "dependencies": []
       },
       {
-      "name": "Cloth Generator Plugin",
-      "description": "A lightweight plugin that generates cloth data directly inside the editor.",
-      "url": "https://github.com/FrostyForge/Frosty-ClothGeneratorPlugin/releases/latest/download/ClothDataPlugin.dll ",
-      "filename": "Plugins/ClothDataPlugin.dll",
-      "dependencies": []
+        "name": "Bundle Manager",
+        "description": "Automatically add referenced assets to bundles.",
+        "url": "https://github.com/FrostyForge/Swbf2BundleManager/releases/latest/download/BundleManager.dll",
+        "filename": "Plugins/BundleManager.dll",
+        "dependencies": []
+      },
+      {
+        "name": "Cloth Generator Plugin",
+        "description": "A lightweight plugin that generates cloth data directly inside the editor.",
+        "url": "https://github.com/FrostyForge/Frosty-ClothGeneratorPlugin/releases/latest/download/ClothDataPlugin.dll ",
+        "filename": "Plugins/ClothDataPlugin.dll",
+        "dependencies": []
+      },
+      {
+        "name": "Flurry Tweaks (Editor)",
+        "description": "A plugin which makes a series of QoL improvements to the editor, simplifying common workflows and adding new features.",
+        "url": "https://github.com/FrostyForge/FrostyFlurryPlugin/releases/latest/download/FlurryEditorPlugin.dll",
+        "filename": "Plugins/FlurryEditorPlugin.dll",
+        "dependencies": []
       }
     ],
     "overrides": [],
@@ -99,6 +118,15 @@
         "dependencies": []
       }
     ],
-    "hidden": []
+    "$comment2": "hidden category is for any sort of file that is not enabled by default, but can be used as a dependency (e.g. libraries, caches, etc.)",
+    "hidden": [
+      {
+        "name": "Ability ID Lookup Plugin - Cache (SWBF2)",
+        "description": "A cache file for the Ability ID Lookup Plugin.",
+        "url": "https://github.com/AdamRaichu/FrostyAbilityIdLookup/releases/latest/download/StarWarsBattlefrontII_AbilityIdPlugin_Cache.cache",
+        "filename": "Caches/StarWarsBattlefrontII_AbilityIdPlugin_Cache.cache",
+        "dependencies": []
+      }
+    ]
   }
 }
