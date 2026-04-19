@@ -89,7 +89,7 @@
       {
         "name": "MeshSet Extender",
         "description": "Adds Auto LOD imports, Cloth Generation, and Bulk Texture exporting",
-        "url": "https://github.com/Claymaver/Frosty-MeshSet-Extender/releases/latest/download/MeshSetExtender.dll ",
+        "url": "https://github.com/Claymaver/Frosty-MeshSetExtender/releases/latest/download/MeshSetExtender.dll ",
         "filename": "Plugins/MeshSetExtenderPlugin.dll",
         "dependencies": []
       },
