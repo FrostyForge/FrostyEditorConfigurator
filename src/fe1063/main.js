@@ -1,6 +1,6 @@
 import mappings from "./mappings.json" with { type: "json" };
 
-const proxyUrl = "https://github-asset-proxy.adamraichu.workers.dev/?url=";
+var proxyUrl = "https://github-asset-proxy.adamraichu.workers.dev/?url=";
 
 //#region Helpers
 
